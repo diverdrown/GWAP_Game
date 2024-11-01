@@ -526,15 +526,13 @@ Welcome to the Scroll Maze! Scroll through a sea of irrelevant information to fi
         }
     }
 &lt;/script&gt;
-</tw-passagedata><tw-passagedata pid="11" name="Loading Loop Minigame" tags="" position="1275,750" size="100,100">:: LoadingMinigame
-&lt;h2&gt;Click to load the copay information.&lt;/h2&gt;
+</tw-passagedata><tw-passagedata pid="11" name="Loading Loop Minigame" tags="" position="1275,750" size="100,100">//extended loading + pseudo-animation from Lauren :)
+
+&lt;h2&gt;Click here to load the copay information.&lt;/h2&gt;
 &lt;button id=&quot;load-button&quot; onclick=&quot;startLoading()&quot;&gt;Load&lt;/button&gt;
 
-&lt;div id=&quot;loading-message&quot; style=&quot;margin-top: 20px; display: none;&quot;&gt;
-    &lt;p&gt;Loading...&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;p id=&quot;copay-info&quot; style=&quot;display: none;&quot;&gt;The copay is $20!&lt;/p&gt;
+&lt;div id=&quot;loading-message&quot; style=&quot;margin-top: 20px; display: none;&quot;&gt;&lt;p&gt;Loading.&lt;/p&gt;
+&lt;/div&gt;&lt;p id=&quot;copay-info&quot; style=&quot;display: none;&quot;&gt;The insured is responsible for $(print:$copay).&lt;/p&gt;
 
 &lt;script&gt;
     function startLoading() {
@@ -547,14 +545,29 @@ Welcome to the Scroll Maze! Scroll through a sea of irrelevant information to fi
 
         // Simulate long loading loop with setTimeout
         setTimeout(() =&gt; {
-            loadingMessage.innerHTML = &#39;Still loading...&#39;;
-            setTimeout(() =&gt; {
-                loadingMessage.innerHTML = &#39;Just a bit longer...&#39;;
-                setTimeout(() =&gt; {
-                    loadingMessage.style.display = &#39;none&#39;;
-                    copayInfo.style.display = &#39;block&#39;;
-                }, 2000);
-            }, 2000);
+            loadingMessage.innerHTML = &#39;Loading..&#39;;
+           	setTimeout(() =&gt; {
+            	loadingMessage.innerHTML = &#39;Loading...&#39;;
+            	setTimeout(() =&gt; {
+                    loadingMessage.innerHTML = &#39;Loading.&#39;;
+            		setTimeout(() =&gt; {
+                    	loadingMessage.innerHTML = &#39;Loading..&#39;;
+            			setTimeout(() =&gt; {
+            				loadingMessage.innerHTML = &#39;Connection buffering.&#39;;
+            				setTimeout(() =&gt; {
+          				  		loadingMessage.innerHTML = &#39;Starting over.&#39;;
+            					setTimeout(() =&gt; {
+                					loadingMessage.innerHTML = &#39;Loading...&#39;;
+                					setTimeout(() =&gt; {
+                    					loadingMessage.style.display = &#39;none&#39;;
+         								copayInfo.style.display = &#39;block&#39;;
+                                        }, 2000);
+                					}, 2000);
+                         		}, 2000);
+                   			}, 2000);
+						}, 2000);
+          			}, 2000);
+            	}, 2000);
         }, 2000);
     }
 &lt;/script&gt;
