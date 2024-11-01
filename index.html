@@ -190,9 +190,9 @@ Where should you [[start?|Randomizer]]
             if (setDiagnosis === &quot;depression&quot;) {
                 energy = 50;
             } else if (setDiagnosis === &quot;ocd&quot;) {
-                // Placeholder for OCD modifier logic
+               energy = 51;
             } else if (setDiagnosis === &quot;bipolar&quot;) {
-                // Placeholder for bipolar modifier logic
+                energy = 49;
             }
 
             // Set options based on user location
@@ -212,7 +212,6 @@ Where should you [[start?|Randomizer]]
             // Output results
             const output = `
                 Based on your situation, you have ${options} professionals in the area.&lt;br&gt;
-                Energy Level: ${energy} (for ${setDiagnosis})
             `;
 
             document.getElementById(&#39;output&#39;).innerHTML = output;
